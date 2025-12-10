@@ -1,1 +1,0 @@
-const express=require("express"); const router=express.Router(); const c=require("../controllers/reportController"); router.get("/",c.getStatus); module.exports=router;

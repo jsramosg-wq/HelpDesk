@@ -1,1 +1,0 @@
-const express=require("express"); const router=express.Router(); const c=require("../controllers/caseController"); router.get("/",c.getCases); router.post("/",c.createCase); module.exports=router;

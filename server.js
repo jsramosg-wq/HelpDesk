@@ -1,17 +1,24 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Middlewares
 app.use(cors());
 app.use(express.json());
 
+// SERVIR FRONTEND
+app.use(express.static(path.join(__dirname, "public")));
+
+// API
 const ticketsRoutes = require("./routes/tickets");
 app.use("/api/tickets", ticketsRoutes);
 
+// Ruta principal
 app.get("/", (req, res) => {
-  res.send("API HelpDesk funcionando ✅");
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.listen(PORT, () => {

@@ -1,1 +1,12 @@
-const express=require("express"); const router=express.Router(); const c=require("../controllers/authController"); router.post("/login",c.login); module.exports=router;
+const express = require("express");
+const router = express.Router();
+
+const {
+  getTickets,
+  createTicket
+} = require("../controllers/ticketsController");
+
+router.get("/", getTickets);
+router.post("/", createTicket);
+
+module.exports = router;
